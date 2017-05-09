@@ -20,10 +20,3 @@ execute 'a2enmod ssl'
 
 execute 'a2ensite default-ssl'
 
-file '/etc/notreal/ssl-config' do
-  content 'This is a file'
-  owner 'root'
-  group 'root'
-  mode '0755'
-  action :create
-end
