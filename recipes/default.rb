@@ -4,13 +4,13 @@
 #
 # Copyright (c) 2016 The Authors, All Rights Reserved.
 
-package 'apache2'
+# package 'apache2'
 
-template '/etc/apache2/sites-available/default-ssl.conf' do
-  action :create
-  source 'default-ssl.conf.erb'
-  notifies :restart, 'service[apache2]', :immediately
-end
+# template '/etc/apache2/sites-available/default-ssl.conf' do
+#   action :create
+#   source 'default-ssl.conf.erb'
+#   notifies :restart, 'service[apache2]', :immediately
+# end
 
 service 'apache2' do
   action :nothing
