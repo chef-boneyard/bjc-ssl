@@ -4,13 +4,13 @@
 #
 # Copyright (c) 2016 The Authors, All Rights Reserved.
 
-# package 'apache2'
+package 'apache2'
 
-# template '/etc/apache2/sites-available/default-ssl.conf' do
-#   action :create
-#   source 'default-ssl.conf.erb'
-#   notifies :restart, 'service[apache2]', :immediately
-# end
+template '/etc/apache2/sites-available/default-ssl.conf' do
+  action :create
+  source 'default-ssl.conf.erb'
+  notifies :restart, 'service[apache2]', :immediately
+end
 
 service 'apache2' do
   action :nothing
@@ -19,3 +19,11 @@ end
 execute 'a2enmod ssl'
 
 execute 'a2ensite default-ssl'
+
+file '/etc/notreal/ssl-config' do
+  content 'This is a file'
+  owner 'root'
+  group 'root'
+  mode '0755'
+  action :create
+end
